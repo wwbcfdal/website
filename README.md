@@ -31,7 +31,7 @@ Website Planning Notes
     * [x] Suggested Names:
       * [ ] westwoodbaptistchurch.com      $  3,488.00 + 10.69 per year
       * [x] westwoodbaptistalabama.com     $     10.69 + 10.69 per year
-      * [x] westwoodbaptist365
+      * [x] westwoodbaptist365.com
       * [ ] westwoodbaptistchurch.us       $      0.88 +  0.88 per year
       * [ ] westwoodbaptistchurch.faith    $      0.88 +  0.88 per year
       * [ ] westwoodbaptistchurch.stream   $      0.88 +  0.88 per year

@@ -2,38 +2,104 @@
 <html>
   <head>
     <title>Westwood Baptist Church</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/bsoverride.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-override.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
   </head>
   <body>
     <div class="wrapper">
       <div class="header">
         <div class="menu">
-          <nav class="navbar navbar-default navbar-static-top">
-              <div class="container-fluid">
-                <div class="navbar-header">
-                  <a class="navbar-brand" href="#">Westwood Baptist Church</a>
+          <div class="logo">
+          </div>
+          <!-- NAVBAR START -->
+          <div class="navbar navbar-default navbar-static-top">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">
+                  <a href="#">Westwood Baptist Church</a>
+                  <p class="sub-brand">Forestdale Alabama</p>
                 </div>
+              </div>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                   <li class="active"><a href="#">Home</a></li>
                   <li><a href="#">About</a></li>
                   <li><a href="#">Contact</a></li> 
-                  <li><a href="#">Ministries</a></li> 
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                      Ministries
+                      <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Children</a></li>
+                      <li><a href="#">Students</a></li>
+                      <li><a href="#">Men</a></li>
+                      <li><a href="#">Women</a></li>
+                      <li><a href="#">Senior Adults</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a href="#">Ballet</a></li>
+                      <li><a href="#">Music</a></li>
+                    </ul>
+                  </li>
                 </ul>
+              </div>
             </div>
-          </nav>
+          </div>
+          <!-- NAVBAR END -->
         </div>
       </div>
-      <div class="body">
-        <h1 class="title">Westwood Baptist Church</h1>
-        <p>
-          For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.
-        </p>
+    </div>
+    <div class="body">
+      <!-- TOPIC SECTION START -->
+      <div class="jumbotron">
+        <div class="container">
+          <h1>Come to Church</h1>
+          <p>
+            Join us at church. This site is activly being constructed. Check back every day to see it in progress.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada elit massa, pretium tristique urna scelerisque id. Morbi tristique nulla a dui gravida, sed tincidunt sem aliquam. Nullam ut urna lobortis, vehicula quam sed, gravida nisi. Praesent ullamcorper eleifend ante eu dapibus. Mauris ullamcorper pellentesque lacus sit amet egestas.
+          </p>
+          <p><a class="btn btn-success btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        </div>
       </div>
-      <div class="footer">
+      <!-- TOPIC SECTION END -->
+      <!-- THREE SECTIONS START -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h2>Directions</h2>
+            <img class="bottom-padded" src="/images/topographic.png" style="width:304px;height:200px;">
+            <p><a class="btn btn-default" href="https://www.google.com/maps/place/Westwood+Baptist+Church/@33.580711,-86.9175876,17z/data=!3m1!4b1!4m5!3m4!1s0x8888fd4cc2128d43:0x6acad287aff4bd37!8m2!3d33.580711!4d-86.9153989" role="button">Get Directions &raquo;</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>Service Times</h2>
+            <table class="table">
+              <tr> <td>Day</td> <td>Time</td> <td>Location</td></tr>
+              <tr> <td>Sunday</td> <td>10:30am</td> <td>Forestdale</td></tr>
+            </table>
+            <p><a class="btn btn-default" href="#" role="button">Service Overview &raquo;</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>Events</h2>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          </div>
+        </div>
+        <!-- THREE SECTIONS END -->
+      </div>
+      <div class="footer container">
+        <p> &copy; 2016 Westwood Baptist Church</p>
       </div>
     </div>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
   </body>
-  <script src="js/bootstrap.min.js"/>
 </html>

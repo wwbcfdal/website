@@ -1,51 +1,62 @@
 /* navbar */
 .navbar-default {
-    background-color: rgb(25, 80, 112);
+    background-color: #0277BD;
     border-color: #E7E7E7;
+    margin-bottom: 0px;
 }
+
+.navbar-header {
+    height: 62px;
+}
+
 /* title */
-.navbar-default .navbar-brand {
-    color: #DDDDDD;
+.navbar-default .navbar-brand a {
+    color: #ffffff;
+    padding-bottom: 2px;
+    font-size: 16pt;
 }
+
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-    color: #5E5E5E;
+    color: #FFFFFF;
 }
 /* link */
 .navbar-default .navbar-nav > li > a {
-    color: #DDDDDD;
+    color: #CFD8DC;
+    padding-top: 20px;
+    padding-bottom: 22px;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: #333333;
+    color: #ffffff;
 }
 .navbar-default .navbar-nav > .active > a, 
 .navbar-default .navbar-nav > .active > a:hover, 
 .navbar-default .navbar-nav > .active > a:focus {
     color: #555555;
-    background-color: #E7E7E7;
+    background-color: #ffffff;
 }
 .navbar-default .navbar-nav > .open > a, 
 .navbar-default .navbar-nav > .open > a:hover, 
 .navbar-default .navbar-nav > .open > a:focus {
     color: #555555;
-    background-color: #D5D5D5;
+    background-color: #FFFFFF;
 }
 /* caret */
 .navbar-default .navbar-nav > .dropdown > a .caret {
-    border-top-color: #777777;
-    border-bottom-color: #777777;
+    border-top-color: #DDDDDD;
+    border-bottom-color: #DDDDDD;
 }
 .navbar-default .navbar-nav > .dropdown > a:hover .caret,
 .navbar-default .navbar-nav > .dropdown > a:focus .caret {
-    border-top-color: #333333;
-    border-bottom-color: #333333;
+    border-top-color: #ffffff;
+    border-bottom-color: #ffffff;
 }
 .navbar-default .navbar-nav > .open > a .caret, 
 .navbar-default .navbar-nav > .open > a:hover .caret, 
 .navbar-default .navbar-nav > .open > a:focus .caret {
-    border-top-color: #555555;
-    border-bottom-color: #555555;
+    border-top-color: #777777;
+    border-bottom-color: #777777;
 }
 /* mobile version */
 .navbar-default .navbar-toggle {
@@ -60,10 +71,10 @@
 }
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-        color: #777777;
+        color: #DDDDDD;
     }
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-        color: #333333;
+        color: #FFFFFF;
     }
 }

@@ -1,5 +1,45 @@
 body {
-    color: #EEEEEE;
-    background-color: rgb(49, 172, 224);
+    color: #222222;
+    background-color: #ffffff;
+}
+
+.sub-brand {
+    color: #DDDDDD;
+    position:relative;
+    top: -2px;
+    font-size: 10pt;
+}
+
+.navbar-brand {
+    position: relative;
+    left: 100px;
+    padding-right: 150px;
+}
+
+.logo {
+    position: absolute;
+    left: 40px;
+    top: 6px;
+    width: 58px;
+    height: 80px;
+    color: #FFFFFF;
+    background-color: #5cb85c;
+    border: 10px;
+    border: 1px solid #4cae4c;
+    z-index: 99999;
+}
+
+.bottom-padded {
+    padding-bottom: 10px;
+}
+
+.footer {
+    color: #aaaaaa;
+    background-color: #f8f8f8;
+    position: relative;
+    height: 32px;
+    padding-top: 6px;
+    margin-top: 60px;
+    margin-bottom: 20px;
 }
 

@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <title>{{.Title}}</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-override.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <div class="menu">
+          <div class="logo">
+          </div>
+          <!-- NAVBAR START -->
+          <div class="navbar navbar-default navbar-static-top">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">
+                  <a href="#">{{.Title}}</a>
+                  <p class="sub-brand">{{.Subtitle}}</p>
+                </div>
+              </div>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                  {{range .Links}}<li><a href="{{.Href}}">{{.Text}}</a></li>{{end}}
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Contact</a></li> 
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                      Ministries
+                      <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Children</a></li>
+                      <li><a href="#">Students</a></li>
+                      <li><a href="#">Men</a></li>
+                      <li><a href="#">Women</a></li>
+                      <li><a href="#">Senior Adults</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a href="#">Ballet</a></li>
+                      <li><a href="#">Music</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- NAVBAR END -->
+        </div>
+      </div>
+    </div>
+    <div class="body">
+      <!-- TOPIC SECTION START -->
+      <div class="jumbotron">
+        <div class="container">
+          {{.Banner}}
+        </div>
+      </div>
+      <!-- TOPIC SECTION END -->
+      <!-- THREE SECTIONS START -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h2>Directions</h2>
+            <img class="bottom-padded" src="/images/topographic.png" style="width:304px;height:200px;">
+            <p><a class="btn btn-default" href="https://www.google.com/maps/place/Westwood+Baptist+Church/@33.580711,-86.9175876,17z/data=!3m1!4b1!4m5!3m4!1s0x8888fd4cc2128d43:0x6acad287aff4bd37!8m2!3d33.580711!4d-86.9153989" role="button">Get Directions &raquo;</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>Service Times</h2>
+            <table class="table">
+              <tr> <td>Day</td> <td>Time</td> <td>Location</td></tr>
+              <tr> <td>Sunday</td> <td>10:30am</td> <td>Forestdale</td></tr>
+            </table>
+            <p><a class="btn btn-default" href="#" role="button">Service Overview &raquo;</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>Events</h2>
+            {{.Events}}
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          </div>
+        </div>
+        <!-- THREE SECTIONS END -->
+      </div>
+      <div class="footer container">
+        <p> &copy; 2016 Westwood Baptist Church</p>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  </body>
+</html>

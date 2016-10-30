@@ -6,12 +6,27 @@ import (
 	"html/template"
 	"time"
 	"io/ioutil"
-	"os"
 	"path/filepath"
+	"bytes"
 )
 
+const PORT = "80"
 const TEMPLATE_ROOT = "data/template"
 var templates *template.Template
+
+type Model struct {
+	Title string
+	Subtitle string
+	Path string
+	TemplateMenu template.HTML
+	TemplateBody template.HTML
+	Data interface{}
+}
+
+type Link struct {
+	Text string
+	Href string
+}
 
 func InitTemplates() {
 	templates = template.Must(template.New("").Parse(""))
@@ -26,52 +41,100 @@ func InitTemplates() {
 	for _, info := range filesInfo {
 		if !info.IsDir() {
 			filename := info.Name()
-			log.Println("ADDING: " + filename)
 			bytes, err := ioutil.ReadFile(templateDir + "/" + filename)
 			if err != nil {
 				log.Fatal(err)
 			}
 			content := string(bytes)
-			templates = template.Must(templates.New(filename).Parse(content))
+			templates = template.Must(templates.New("/"+filename).Parse(content))
 			log.Println("ADDED TEMPLATE NAMED: "+ filename)
 		}
 	}
 }
 
-// exists returns whether the given file or directory exists or not
-func existsAbsolute(path string) (bool, error) {
-	_, err := os.Stat(path)
-	if err == nil { return true, nil }
-	if os.IsNotExist(err) { return false, nil }
-	return true, err
-}
-
-func existsRelative(path string) (bool, error) {
-	absolute, err := filepath.Abs(path)
-	log.Println(absolute)
-	stat, err := os.Stat(absolute)
-	if err == nil && !stat.IsDir() { return true, nil }
-	if os.IsNotExist(err) { return false, nil }
-	return true, err
-}
-
-func MarkdownRenderHandler(w http.ResponseWriter, r *http.Request) {
-	s := "dynamic data"
-	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(s))
+func GetModel(name string) (Model, error) {
+	model := Model{
+		Path: name,
+		Title: "Westwood Baptist Church",
+		Subtitle: "Forestdale Alabama",
+		TemplateMenu: "",
+		TemplateBody: "",
+		Data: struct{}{},
+	}
+	return model, nil
 }
 
 func TemplateHandler(w http.ResponseWriter, r *http.Request) {
 	path := r.RequestURI
-	templateName := string(path[1:])
+	if path == "/" || path == "/index.htm" || path == "/index" || path == "/home" || path == "/home.html" || path == "/home.htm" {
+		path = "/index.html"
+	}
+	templateName := string(path)
+	modelName := templateName
+	model, _ := GetModel(modelName)
+	menuBuffer := bytes.NewBufferString("")
+	bodyBuffer := bytes.NewBufferString("")
+	pageBuffer := bytes.NewBufferString("")
+	err1 := templates.ExecuteTemplate(menuBuffer, "/menu.html", model)
+	if err1 != nil {
+		log.Println(err1)
+		NotFoundHandler(w, r)
+		return
+	}
+	err2 := templates.ExecuteTemplate(bodyBuffer, templateName, model)
+	if err2 != nil {
+		log.Println(err2)
+		NotFoundHandler(w, r)
+		return
+	}
+	menu := menuBuffer.String()
+	body := bodyBuffer.String()
+	model.TemplateMenu = template.HTML(menu);
+	model.TemplateBody = template.HTML(body);
+	err3 := templates.ExecuteTemplate(pageBuffer, "/frame.html", model)
+	if err3 != nil {
+		log.Println(err3)
+		NotFoundHandler(w, r)
+		return
+	}
 	w.WriteHeader(http.StatusOK)
-	//log.Println("Executing Template Named: "+ templateName)
-	templates.ExecuteTemplate(w, templateName, nil)
+	w.Write(pageBuffer.Bytes())
 }
 
-func ErrorHandler(w http.ResponseWriter, r *http.Request) {
+func NotFoundHandler(w http.ResponseWriter, r *http.Request) {
+	templateName := "/404.html"
+	modelName := templateName
+	model, _ := GetModel(modelName)
+	menuBuffer := bytes.NewBufferString("")
+	bodyBuffer := bytes.NewBufferString("")
+	pageBuffer := bytes.NewBufferString("")
+	err1 := templates.ExecuteTemplate(menuBuffer, "/menu.html", model)
+	if err1 != nil {
+		log.Println(err1)
+		w.WriteHeader(http.StatusNotFound)
+		w.Write([]byte("404 File Not Found"))
+		return
+	}
+	err2 := templates.ExecuteTemplate(bodyBuffer, templateName, model)
+	if err2 != nil {
+		log.Println(err2)
+		w.WriteHeader(http.StatusNotFound)
+		w.Write([]byte("404 File Not Found"))
+		return
+	}
+	menu := menuBuffer.String()
+	body := bodyBuffer.String()
+	model.TemplateMenu = template.HTML(menu);
+	model.TemplateBody = template.HTML(body);
+	err3 := templates.ExecuteTemplate(pageBuffer, "/frame.html", model)
+	if err3 != nil {
+		log.Println(err3)
+		w.WriteHeader(http.StatusNotFound)
+		w.Write([]byte("404 File Not Found"))
+		return
+	}
 	w.WriteHeader(http.StatusNotFound)
-	w.Write([]byte("Status 404"))
+	w.Write(pageBuffer.Bytes())
 }
 
 func main() {
@@ -92,13 +155,12 @@ func main() {
 	routes.Handle("/css/", fs)
 	routes.Handle("/fonts/", fs)
 	routes.Handle("/images/", fs)
-	routes.HandleFunc("/markdown/", MarkdownRenderHandler)
 	
 	log.Println("Listening on port: 80")
 
 	// Create Server
 	server := http.Server{
-		Addr: ":http",
+		Addr: ":" + PORT,
 		Handler: routes,
 		ReadTimeout: time.Second*10,
 		WriteTimeout: time.Second*10,

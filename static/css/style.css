@@ -3,6 +3,14 @@ body {
     background-color: #ffffff;
 }
 
+.brand {
+    text-decoration: none;
+}
+
+.brand:link {
+    text-decoration: none;
+}
+
 .sub-brand {
     color: #DDDDDD;
     position:relative;
@@ -12,8 +20,8 @@ body {
 
 .navbar-brand {
     position: relative;
-    left: 100px;
-    padding-right: 150px;
+    left: 70px;
+    padding-right: 120px;
 }
 
 .logo {
@@ -23,11 +31,18 @@ body {
     width: 58px;
     height: 80px;
     color: #FFFFFF;
-    background-color: #5cb85c;
     border: 10px;
-    border: 1px solid #4cae4c;
     z-index: 99999;
 }
+
+.image-logo-small {
+    width: 36px;
+    /* height: 94px; */
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.61);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.61);
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.61);
+}
+
 
 .bottom-padded {
     padding-bottom: 10px;

@@ -6,6 +6,10 @@
     background-color: rgb(52, 118, 54);    /* Matchy Green */
     background-color: rgba(74, 80, 59, 1); /* Puke Me */
     background-color: rgb(100, 97, 101);   /* Night Smog */
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.61);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.61);
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.61);
+
     border-color: #E7E7E7;
     margin-bottom: 0px;
 }

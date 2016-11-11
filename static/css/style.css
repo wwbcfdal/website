@@ -58,3 +58,25 @@ body {
     margin-bottom: 20px;
 }
 
+.contact-column {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #eeeeee;
+}
+
+.contact-form-column {
+
+}
+
+.request-heading {
+    margin-top: 0px;
+}
+
+.contact-list {
+    font-size: 14pt;
+}
+
+.contact-list .glyphicon {
+    margin-right: 20px;
+}
+

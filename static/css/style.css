@@ -58,9 +58,14 @@ body {
     margin-bottom: 20px;
 }
 
+.contact-row {
+    margin-top: 32px;
+}
+
 .contact-column {
     padding-top: 30px;
     padding-bottom: 30px;
+    margin-bottom: 32px;
     background-color: #eeeeee;
 }
 
@@ -73,10 +78,13 @@ body {
 }
 
 .contact-list {
-    font-size: 14pt;
+    font-size: 12pt;
 }
 
 .contact-list .glyphicon {
-    margin-right: 20px;
+    position: relative;
+    top: 0px;
+    margin-right: 8px;
+    font-size: 14pt;
 }
 

@@ -22,7 +22,11 @@
 
 /* carousel */
 .carousel {
-    min-height: 300px;
+    min-height: 10px;
+}
+
+.carousel-indicators {
+    bottom: 0px;
 }
 
 .carousel img {

@@ -62,15 +62,19 @@ body {
     margin-top: 32px;
 }
 
-.contact-column {
+.left-column {
     padding-top: 30px;
     padding-bottom: 30px;
     margin-bottom: 32px;
     background-color: #eeeeee;
 }
 
-.contact-form-column {
+.right-column {
 
+}
+
+.title-image {
+    margin-bottom:30px;
 }
 
 .request-heading {

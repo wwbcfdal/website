@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"html/template"
@@ -72,6 +73,14 @@ func TemplateHandler(w http.ResponseWriter, r *http.Request) {
 	templateName := string(path)
 	modelName := templateName
 	model, _ := GetModel(modelName)
+	// Populate model data content
+	bodyBytes, err := ioutil.ReadFile("data/html" + templateName)
+	if err != nil {
+		fmt.Println("Didn't Load file: data/html" + templateName);
+	} else {
+		fmt.Println("Loaded file");
+		model.Data = template.HTML(bodyBytes)
+	}
 	menuBuffer := bytes.NewBufferString("")
 	bodyBuffer := bytes.NewBufferString("")
 	pageBuffer := bytes.NewBufferString("")
